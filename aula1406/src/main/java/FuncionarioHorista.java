@@ -1,4 +1,4 @@
-public class FuncionarioHorista {
+public class FuncionarioHorista extends Funcionario {
 
     private float valorHora;
     private int numDias;

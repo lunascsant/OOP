@@ -5,6 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class FuncionarioDiaristaTest {
 
     @Test
+    void deveRetornarNomeFuncionario() {
+        FuncionarioDiarista funcionarioDiarista = new FuncionarioDiarista();
+        funcionarioDiarista.setNome("Luciana");
+        assertEquals("Luciana", funcionarioDiarista.getNome());
+    }
+
+    @Test
     void deveCalcularSalario() {
         FuncionarioDiarista funcionarioDiarista = new FuncionarioDiarista();
         funcionarioDiarista.setNumDias(300);
