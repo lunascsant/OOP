@@ -29,6 +29,6 @@ public class FuncionarioHorista extends Funcionario {
     }
 
     public float calcularSalario() {
-        return this.valorHora * this.numHorasDia * this.numDias;
+        return (this.valorHora * this.numHorasDia * this.numDias) + this.getSalarioFixo();
     }
 }
