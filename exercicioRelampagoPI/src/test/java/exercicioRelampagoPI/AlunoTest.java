@@ -9,9 +9,8 @@ class AlunoTest {
     @Test
     void deveRetornarEstadoNaturalidadeAluno() {
         Aluno aluno = new Aluno();
-        Cidade cidade = new Cidade();
-        Estado estado = new Estado();
-        estado.setNomeEstado("Minas Gerais");
+        Cidade cidade = new Cidade("Juiz de Fora");
+        Estado estado = new Estado("Minas Gerais");
         cidade.setEstado(estado);
         aluno.setNaturalidade(cidade);
 
@@ -23,9 +22,8 @@ class AlunoTest {
         Aluno aluno = new Aluno();
         Curso curso = new Curso();
         Escola escola = new Escola();
-        Cidade cidade = new Cidade();
-        Estado estado = new Estado();
-        estado.setNomeEstado("São Paulo");
+        Cidade cidade = new Cidade("São Paulo");
+        Estado estado = new Estado("São Paulo");
         cidade.setEstado(estado);
         escola.setCidade(cidade);
         curso.setEscola(escola);
@@ -38,8 +36,7 @@ class AlunoTest {
     void deveRetornarNomeCoordenadorCursoAluno() {
         Aluno aluno = new Aluno();
         Curso curso = new Curso();
-        Professor professor = new Professor();
-        professor.setNome("Marco Antônio");
+        Professor professor = new Professor("Marco Antônio");
         curso.setCoordenacao(professor);
         aluno.setCurso(curso);
 

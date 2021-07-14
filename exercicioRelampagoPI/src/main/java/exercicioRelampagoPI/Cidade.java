@@ -5,6 +5,10 @@ public class Cidade {
     private String nomeCidade;
     private Estado estado;
 
+    public Cidade (String nomeCidade) {
+        this.nomeCidade = nomeCidade;
+    }
+
     public String getNomeCidade() {
         return nomeCidade;
     }

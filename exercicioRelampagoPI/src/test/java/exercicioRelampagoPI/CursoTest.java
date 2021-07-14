@@ -8,9 +8,8 @@ class CursoTest {
 
     @Test
     void deveRetornarEscolaridadeCoordenadorCurso() {
-        Professor professor = new Professor();
-        Escolaridade escolaridadeProfessor = new Escolaridade();
-        escolaridadeProfessor.setFormacao("Mestrado");
+        Professor professor = new Professor("Marco Antônio");
+        Escolaridade escolaridadeProfessor = new Escolaridade("Mestrado");
         professor.setEscolaridade(escolaridadeProfessor);
 
         Curso curso = new Curso();

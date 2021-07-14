@@ -5,6 +5,10 @@ public class Professor extends Pessoa {
     private String nome;
     private Curso contratacao;
 
+    public Professor (String nome) {
+        this.nome = nome;
+    }
+
     public String getNome() {
         return nome;
     }

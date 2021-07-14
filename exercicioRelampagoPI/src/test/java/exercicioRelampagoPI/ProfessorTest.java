@@ -8,9 +8,8 @@ class ProfessorTest {
 
     @Test
     void deveRetornarEscolaridadeProfessor() {
-        Professor professor = new Professor();
-        Escolaridade escolaridadeProfessor = new Escolaridade();
-        escolaridadeProfessor.setFormacao("Doutorado");
+        Professor professor = new Professor("Marco Antônio");
+        Escolaridade escolaridadeProfessor = new Escolaridade("Doutorado");
         professor.setEscolaridade(escolaridadeProfessor);
 
         assertEquals("Doutorado", professor.getEscolaridadeProfessor());
@@ -18,9 +17,8 @@ class ProfessorTest {
 
     @Test
     void deveRetornarCidadeNascimentoProfessor() {
-        Professor professor = new Professor();
-        Cidade cidade = new Cidade();
-        cidade.setNomeCidade("São João del Rei");
+        Professor professor = new Professor("Marco Antônio");
+        Cidade cidade = new Cidade("São João del Rei");
         professor.setNaturalidade(cidade);
 
         assertEquals("São João del Rei", professor.getCidadeNascimentoProfessor());
@@ -28,10 +26,9 @@ class ProfessorTest {
 
     @Test
     void getTipoEnsinoContratadoParaLecionar1() {
-        Professor professor = new Professor();
+        Professor professor = new Professor("Marco Antônio");
         Curso curso = new Curso();
-        TipoEnsino tipoEnsino = new TipoEnsino();
-        tipoEnsino.setNomeTipoEnsino("Ensino Fundamental");
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Fundamental");
         curso.setTipoEnsino(tipoEnsino);
         professor.setContratacao(curso);
 
@@ -40,10 +37,9 @@ class ProfessorTest {
 
     @Test
     void getTipoEnsinoContratadoParaLecionar2() {
-        Professor professor = new Professor();
+        Professor professor = new Professor("Marco Antônio");
         Curso curso = new Curso();
-        TipoEnsino tipoEnsino = new TipoEnsino();
-        tipoEnsino.setNomeTipoEnsino("Ensino Médio");
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Médio");
         curso.setTipoEnsino(tipoEnsino);
         professor.setContratacao(curso);
 
@@ -52,10 +48,9 @@ class ProfessorTest {
 
     @Test
     void getTipoEnsinoContratadoParaLecionar3() {
-        Professor professor = new Professor();
+        Professor professor = new Professor("Marco Antônio");
         Curso curso = new Curso();
-        TipoEnsino tipoEnsino = new TipoEnsino();
-        tipoEnsino.setNomeTipoEnsino("Ensino Superior");
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Superior");
         curso.setTipoEnsino(tipoEnsino);
         professor.setContratacao(curso);
 
@@ -64,8 +59,8 @@ class ProfessorTest {
 
     @Test
     void deveRetornarDiretorProfessor() {
-        Professor professor = new Professor();
-        Professor professorDiretor = new Professor();
+        Professor professor = new Professor("Marco Antônio");
+        Professor professorDiretor = new Professor("Fabrício Martins");
         professorDiretor.setNome("João Silva");
         Curso curso = new Curso();
         Escola escola = new Escola();
@@ -79,8 +74,8 @@ class ProfessorTest {
 
     @Test
     void deveRetornarCoordenadorProfessor() {
-        Professor professor = new Professor();
-        Professor professorCoordenador = new Professor();
+        Professor professor = new Professor("Marco Antônio");
+        Professor professorCoordenador = new Professor("Ruy Freitas");
         professorCoordenador.setNome("Marcos Braga");
         Curso curso = new Curso();
         curso.setCoordenacao(professorCoordenador);
