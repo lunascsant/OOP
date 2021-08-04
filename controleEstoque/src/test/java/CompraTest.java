@@ -16,6 +16,20 @@ class CompraTest {
     }
 
     @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto10", 10, 1.25f, 5, 20);
+            Fornecedor fornecedor = new Fornecedor("João", "123");
+            Compra compra = new Compra("25/12/2020", produto, fornecedor, 5, 1.25f);
+
+            compra.comprar(produto, -1);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
     void deveRetornarTrueMetodoComprar() {
         Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
         Fornecedor fornecedor = new Fornecedor("João", "123");

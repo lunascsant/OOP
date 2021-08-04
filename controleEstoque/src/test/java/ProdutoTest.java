@@ -18,6 +18,125 @@ class ProdutoTest {
     }
 
     @Test
+    void deveRetornarExcecaoQuantidadePositivaEstoqueObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto10", -1, 1.25f, 5, 20);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaEstoqueMinimoObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, -1, 20);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaEstoqueMaximoObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, -1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaDebitarEstoque() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            produto.debitarEstoque(-1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaCreditarEstoque() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            produto.creditarEstoque(-1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaVerificarEstoqueInsuficiente() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            produto.verificarEstoqueInsuficiente(-1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaVerificarEstoqueExcedente() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            produto.verificarEstoqueExcedente(-1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaCalcularValorVenda() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            produto.calcularValorVenda(-1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaVender() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            Cliente cliente = new Cliente("João", "123");
+            produto.vender("26/01/2020", cliente, -1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoriaComprar() {
+        try {
+            Produto produto = new Produto("Produto10", 5, 1.25f, 5, 50);
+            Fornecedor fornecedor = new Fornecedor("João", "123");
+            produto.comprar("26/01/2020", fornecedor, -1, 1.0f);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
     void deveRetornarExcecaoTransacaoObrigatoria() {
         try {
             Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);

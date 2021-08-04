@@ -10,6 +10,10 @@ public class Venda extends Transacao {
     }
 
     public boolean vender(Produto produto, int qtdeVendida) {
+        if (qtdeVendida < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
+
         if(produto.verificarEstoqueInsuficiente(qtdeVendida)) {
             produto.registrarHistorico("Estoque insuficiente");
             return false;

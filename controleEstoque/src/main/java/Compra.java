@@ -12,6 +12,10 @@ public class Compra extends Transacao {
     }
 
     public boolean comprar(Produto produto, int qtdeCompra) {
+        if (qtdeCompra < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
+
         if(produto.verificarEstoqueExcedente(qtdeCompra)) {
             produto.registrarHistorico("Estoque excedente");
             return false;

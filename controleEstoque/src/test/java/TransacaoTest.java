@@ -27,4 +27,16 @@ class TransacaoTest {
         }
     }
 
+    @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto 1", 12, 12.90f, 4, 18);
+            Transacao transacao = new Transacao("26/01/2020", produto, -1);
+
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
 }

@@ -10,6 +10,9 @@ public class Transacao {
         if (dataTransacao == null) {
             throw new IllegalArgumentException("Data da transação obrigatória");
         }
+        if (qtde < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         this.dataTransacao = dataTransacao;
         this.produto = produto;
         this.qtde = qtde;

@@ -13,6 +13,15 @@ public class Produto {
         if (nome == null) {
             throw new IllegalArgumentException("Nome obrigatório");
         }
+        if (qtdeEstoque < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
+        if (estoqueMinimo < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
+        if (estoqueMaximo < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         this.nome = nome;
         this.qtdeEstoque = qtdeEstoque;
         this.precoUnit = precoUnit;
@@ -30,10 +39,16 @@ public class Produto {
     }
 
     public void debitarEstoque(int quantidade) {
+        if (quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         this.qtdeEstoque = this.qtdeEstoque - quantidade;
     }
 
     public void creditarEstoque(int quantidade) {
+        if (quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         this.qtdeEstoque = this.qtdeEstoque + quantidade;
     }
 
@@ -42,18 +57,30 @@ public class Produto {
     }
 
     public boolean verificarEstoqueInsuficiente(int quantidade) {
+        if (quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         return quantidade > this.qtdeEstoque;
     }
 
     public boolean verificarEstoqueExcedente(int quantidade) {
+        if (quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         return (quantidade + this.qtdeEstoque) > this.estoqueMaximo;
     }
 
     public float calcularValorVenda(int quantidade) {
+        if (quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         return this.precoUnit * quantidade;
     }
 
     public void vender(String dataVenda, Cliente cliente, int qtdeVendida) {
+        if (qtdeVendida < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         Venda venda = new Venda(dataVenda, this, cliente, qtdeVendida);
         if (venda.vender(this, qtdeVendida)) {
             this.registrarHistorico("Venda do produto " + this.nome + " " + "em " + dataVenda + ", total de " + qtdeVendida + " unidades");
@@ -61,6 +88,9 @@ public class Produto {
     }
 
     public void comprar(String dataCompra, Fornecedor fornecedor, int qtdeCompra, float precoUnit) {
+        if (qtdeCompra < 0) {
+            throw new IllegalArgumentException("Quantidade positiva obrigatória");
+        }
         Compra compra = new Compra(dataCompra, this, fornecedor, qtdeCompra, precoUnit);
         if (compra.comprar(this, qtdeCompra)) {
             this.registrarHistorico("Compra do produto " + this.nome + " " + "em " + dataCompra + ", total de " + qtdeCompra + " unidades");

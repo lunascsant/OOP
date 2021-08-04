@@ -16,6 +16,20 @@ class VendaTest {
     }
 
     @Test
+    void deveRetornarExcecaoQuantidadePositivaObrigatoria() {
+        try {
+            Produto produto = new Produto("Produto10", 10, 1.25f, 5, 20);
+            Cliente cliente = new Cliente("João", "123");
+            Venda venda = new Venda("01/05/78", produto, cliente, 12);
+
+            venda.vender(produto, -1);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Quantidade positiva obrigatória", e.getMessage());
+        }
+    }
+
+    @Test
     void deveRetornarTrueMetodoVender() {
         Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
         Cliente cliente = new Cliente("João", "123");
