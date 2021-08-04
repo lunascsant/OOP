@@ -16,7 +16,7 @@ public class Venda extends Transacao {
         }
 
         produto.debitarEstoque(qtdeVendida);
-        produto.registrarHistorico("Valor da venda = " + produto.calcularValorVenda(qtdeVendida));
+        produto.registrarHistorico("Valor venda = " + produto.calcularValorVenda(qtdeVendida));
         if(produto.verificarEstoqueBaixo()) {
             produto.registrarHistorico("Estoque baixo");
         }

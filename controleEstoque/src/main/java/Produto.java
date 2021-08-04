@@ -21,6 +21,14 @@ public class Produto {
         this.historico = new ArrayList<String>();
     }
 
+    public List<String> getHistorico() {
+        return historico;
+    }
+
+    public int getQtdeEstoque() {
+        return qtdeEstoque;
+    }
+
     public void debitarEstoque(int quantidade) {
         this.qtdeEstoque = this.qtdeEstoque - quantidade;
     }
@@ -60,6 +68,9 @@ public class Produto {
     }
 
     public void registrarHistorico(String transacao) {
+        if (transacao == null) {
+            throw new NullPointerException("Transação obrigatória");
+        }
         this.historico.add(transacao);
     }
 

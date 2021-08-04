@@ -14,4 +14,22 @@ class VendaTest {
             assertEquals("Cliente obrigatório", e.getMessage());
         }
     }
+
+    @Test
+    void deveRetornarTrueMetodoVender() {
+        Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
+        Cliente cliente = new Cliente("João", "123");
+        Venda venda = new Venda("26/01/2020", produto, cliente, 5);
+
+        assertEquals(true, venda.vender(produto, 1));
+    }
+
+    @Test
+    void deveRetornarFalseMetodoVender() {
+        Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
+        Cliente cliente = new Cliente("João", "123");
+        Venda venda = new Venda("26/01/2020", produto, cliente, 6);
+
+        assertEquals(false, venda.vender(produto, 11));
+    }
 }

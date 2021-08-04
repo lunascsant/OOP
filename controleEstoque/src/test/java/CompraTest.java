@@ -14,4 +14,22 @@ class CompraTest {
             assertEquals("Fornecedor obrigatório", e.getMessage());
         }
     }
+
+    @Test
+    void deveRetornarTrueMetodoComprar() {
+        Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
+        Fornecedor fornecedor = new Fornecedor("João", "123");
+        Compra compra = new Compra("26/01/2020", produto, fornecedor, 1, 1.90f);
+
+        assertEquals(true, compra.comprar(produto, 1));
+    }
+
+    @Test
+    void deveRetornarFalseMetodoComprar() {
+        Produto produto = new Produto("Caneta", 10, 1.90f, 5, 50);
+        Fornecedor fornecedor = new Fornecedor("João", "123");
+        Compra compra = new Compra("26/01/2020", produto, fornecedor, 41, 1.90f);
+
+        assertEquals(false, compra.comprar(produto, 41));
+    }
 }
