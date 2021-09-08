@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EquipamentoTest {
 
     @Test
-    void deveMatricularPlanoExercicio() {
+    void deveAlocarPlanoExercicio() {
         PlanoExercicio planoExercicio = new PlanoExercicio("Quarta 14h", "Leg press - Leg press 45° 20x");
         Equipamento equipamento = new Equipamento("Leg press");
 
@@ -30,7 +30,7 @@ class EquipamentoTest {
     }
 
     @Test
-    void deveRetornarExcecaoMatriculaPlanoExercicioNulo() {
+    void deveRetornarExcecaoPlanoExercicioNulo() {
         try {
             Equipamento equipamento = new Equipamento("Leg press");
             equipamento.alocar(null);
@@ -42,7 +42,7 @@ class EquipamentoTest {
     }
 
     @Test
-    void deveRetornarExcecaoDesmatriculaPlanoExercicioNulo() {
+    void deveRetornarExcecaoSairPlanoExercicioNulo() {
         try {
             Equipamento equipamento = new Equipamento("Leg press");
             equipamento.sairPlanoExercicio(null);

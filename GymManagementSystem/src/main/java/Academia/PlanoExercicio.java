@@ -23,7 +23,7 @@ public class PlanoExercicio {
         if (equipamento == null) {
             throw new NullPointerException("Equipamento deve ser informado");
         }
-        if (!this.equipamentosUsados.contains(equipamento)) {
+        if (!verificarUsoEquipamento(equipamento)) {
             this.equipamentosUsados.add(equipamento);
         }
         if (!equipamento.verificarPlanoEnvolvido(this)) {
@@ -35,7 +35,7 @@ public class PlanoExercicio {
         if (equipamento == null) {
             throw new NullPointerException("Equipamento deve ser informado");
         }
-        if (this.equipamentosUsados.contains(equipamento)) {
+        if (verificarUsoEquipamento(equipamento)) {
             this.equipamentosUsados.remove(equipamento);
         }
         if (equipamento.verificarPlanoEnvolvido(this)) {
